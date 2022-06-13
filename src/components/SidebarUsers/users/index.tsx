@@ -30,7 +30,7 @@ const Users:React.FC<IUserProps> = ({user}) => {
     <Container>
       <div className="profile">
         <div >
-          {user.avatar ? <img src={`http://localhost:4000/${user.avatar}`} alt="" /> : <img src='http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon' alt="" />  }
+          {user.avatar ? <img src={`${process.env.REACT_APP_PUBLIC_URL}/${user.avatar}`} alt="" /> : <img src='http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon' alt="" />  }
         </div>
 
         <span>{user.name} {user.surname} </span>

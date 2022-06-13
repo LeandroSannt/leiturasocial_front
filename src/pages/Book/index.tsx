@@ -128,7 +128,7 @@ const Book: React.FC = () =>{
     setCategory(newValue)
   };
 
-   const [preview,setPreview] = useState<string>(`http://localhost:4000/${data?.photo}`)
+   const [preview,setPreview] = useState<string>(`${process.env.REACT_APP_PUBLIC_URL}/${data?.photo}`)
 
   useEffect(() => {
     if(avatar){
@@ -139,7 +139,7 @@ const Book: React.FC = () =>{
       reader.readAsDataURL(avatar)
 
     }else if(data?.photo){
-      setPreview(`http://localhost:4000/${data?.photo}`)
+      setPreview(`${process.env.REACT_APP_PUBLIC_URL}/${data?.photo}`)
     }else{
       setPreview('http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon')
     }
@@ -163,7 +163,7 @@ const Book: React.FC = () =>{
         <Content>
           <Informations>
             <div className='contentAvatar'>
-              <img src={`http://localhost:4000/${data?.photo}`} alt="user" />
+              <img src={`${process.env.REACT_APP_PUBLIC_URL}/${data?.photo}`} alt="user" />
             </div>
 
             <div className='authorCategory'>

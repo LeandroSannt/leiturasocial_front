@@ -239,7 +239,7 @@ const Books:React.FC = () =>{
               {data?.map((book) =>(
                 <Link key={book.id} to ={`book/${book.id}`}>
                   <div>
-                    <img src={`http://localhost:4000/${book.photo}`} alt={book.title} />
+                    <img src={`${process.env.REACT_APP_PUBLIC_URL}/${book.photo}`} alt={book.title} />
                   </div>
                 <h4>{book.title}</h4>
                 </Link>

@@ -105,7 +105,7 @@ const Profile: React.FC = () => {
     [],
   );
 
-  const [preview,setPreview] = useState<string>(`http://localhost:4000/${user.avatar}`)
+  const [preview,setPreview] = useState<string>(`${process.env.REACT_APP_PUBLIC_URL}/${user.avatar}`)
 
   useEffect(() => {
     if(avatar){
@@ -116,7 +116,7 @@ const Profile: React.FC = () => {
       reader.readAsDataURL(avatar)
 
     }else if(user.avatar){
-      setPreview(`http://localhost:4000/${user.avatar}`)
+      setPreview(`${process.env.REACT_APP_PUBLIC_URL}/${user.avatar}`)
     }else{
       setPreview('http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon')
     }

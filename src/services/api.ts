@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-    const token = localStorage.getItem("@desafio:token")
+const token = localStorage.getItem("@desafio:token")
 
 const api = axios.create({
-  baseURL: 'http://localhost:4000'
+  baseURL: process.env.REACT_APP_PUBLIC_URL
 })
 
 

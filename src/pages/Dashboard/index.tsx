@@ -151,7 +151,7 @@ const Dashboard: React.FC = () =>{
               <div>
                 <div>
                   {user.avatar ?
-                  <img src={`http://localhost:4000/${user.avatar}`} alt={'fe'} />
+                  <img src={`${process.env.REACT_APP_PUBLIC_URL}/${user.avatar}`} alt={'fe'} />
                   :
                   <img src='http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon' alt="foto padrao" />
                   }
@@ -168,7 +168,7 @@ const Dashboard: React.FC = () =>{
                 <div>
                   <div>
                     {post.user.avatar ? 
-                    <img src={`http://localhost:4000/${post.user.avatar}`} alt="" />
+                    <img src={`${process.env.REACT_APP_PUBLIC_URL}/${post.user.avatar}`} alt="" />
                     :
                     <img src='http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon' alt="foto padrao" />
                   }
@@ -195,7 +195,7 @@ const Dashboard: React.FC = () =>{
                   <div>
                     <div className="comments-content-img">
                       {user.avatar ?
-                      <img src={`http://localhost:4000/${user.avatar}`} alt={user.name} />
+                      <img src={`${process.env.REACT_APP_PUBLIC_URL}/${user.avatar}`} alt={user.name} />
                       :
                        <img src='http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon' alt="foto padrao" />
                       }
@@ -231,7 +231,7 @@ const Dashboard: React.FC = () =>{
                       <div className="imageContent">
 
                       {comment.user.avatar ?
-                        <img src={`http://localhost:4000/${comment.user.avatar}`} alt={comment.user.name} />
+                        <img src={`${process.env.REACT_APP_PUBLIC_URL}/${comment.user.avatar}`} alt={comment.user.name} />
                       :
                        <img src='http://www.gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802?d=identicon' alt="foto padrao" />
                       }
@@ -262,7 +262,7 @@ const Dashboard: React.FC = () =>{
                               }
                               {
                                 comment.book?.photo &&
-                                <img src={`http://localhost:4000/${comment.book?.photo}`} alt={comment.book?.title} />
+                                <img src={`${process.env.REACT_APP_PUBLIC_URL}/${comment.book?.photo}`} alt={comment.book?.title} />
                               }
                             </Link>
                           </div>
