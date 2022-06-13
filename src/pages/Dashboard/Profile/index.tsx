@@ -45,6 +45,25 @@ const Profile: React.FC = () => {
       try {
         const formData = new FormData();
 
+
+      formRef.current?.setErrors({});
+
+      const schema = Yup.object().shape({
+        email:Yup.string().required('E-mail obrigatorio').email('Digite um e-mail valido'),
+        password:Yup.string().required('Senha obrigatoria')
+      })
+
+      await schema.validate(data,{
+        abortEarly:false  
+      })
+
+
+
+
+
+
+
+
         const file = inputRef.current?.files?.[0]
 
         file && formData.append('file',file);
@@ -188,7 +207,7 @@ const Profile: React.FC = () => {
             name="password"
             icon={FiLock}
             type="password"
-            placeholder="Nova senha"
+            placeholder="Digite sua senha para atualizar seus dados"
           />
           <Input
             name="confirmPassword"

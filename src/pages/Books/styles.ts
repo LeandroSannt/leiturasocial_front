@@ -64,7 +64,7 @@ a{
   div{
     object-fit: cover;
     width: 100%;
-    height: 90%;
+    height: 300px;
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0px 0px 23px -2px rgba(255,255,255,0.32);

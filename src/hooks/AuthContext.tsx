@@ -1,4 +1,4 @@
-import React,{createContext,useCallback, useState,useContext} from 'react'
+import React,{ createContext, useCallback, useContext, useState } from 'react'
 
 import api from '../services/api'
 import { queryClient } from '../services/queryClient'
@@ -60,8 +60,8 @@ const AuthProvider:React.FC = ({children}) => {
 
     api.defaults.headers['Authorization'] = `Bearer ${token}`;
 
-    await queryClient.invalidateQueries(['users'])
-    await queryClient.invalidateQueries(['publications'])
+    // await queryClient.invalidateQueries(['users'])
+    // await queryClient.invalidateQueries(['publications'])
 
     setData({token,user})
   }, [])
