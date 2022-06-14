@@ -1,6 +1,7 @@
 import React,{ useEffect, useState } from 'react'
 import ClipLoader from "react-spinners/ClipLoader";
 
+import { useAuth } from '../../hooks/AuthContext'
 import { useModal } from '../../hooks/ModalContext'
 import { useToast } from '../../hooks/ToastContext'
 import { CategoryProps } from '../../pages/Types'
@@ -27,6 +28,7 @@ const Categories:React.FC<ICategoryProps> = ({setCategoryId}) =>{
 
   const {closeModal2,openModal2} = useModal()
   const {addToast} = useToast()
+  const {user} = useAuth()
 
   useEffect(() =>{
     const result = api.get('/categories',
@@ -120,7 +122,9 @@ const Categories:React.FC<ICategoryProps> = ({setCategoryId}) =>{
                 </Button>
               </form >
         </Modal>
-      <Button onClick={openModal2} style={{width:'90%', margin:'20px auto 20px auto'}}>Cadastrar Categoria</Button>
+        {user.isAdmin && 
+         <Button onClick={openModal2} style={{width:'90%', margin:'20px auto 20px auto'}}>Cadastrar Categoria</Button>
+        }
     </Container>
   )
 }

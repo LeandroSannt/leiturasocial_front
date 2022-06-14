@@ -52,8 +52,8 @@ display: flex;
 export const List = styled.div`
 display: grid;
 grid-template-columns: repeat(4,1fr);
-gap: 30px;
 padding-bottom: 50px;
+row-gap: 40px;
 
 
 a{

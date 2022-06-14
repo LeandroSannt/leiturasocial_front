@@ -34,6 +34,7 @@ const Book: React.FC = () =>{
 
   const [category,setCategory] = useState<string | undefined>('')
   const [categories,setCategories] = useState<SelectProps[]>([])
+  const [title,setTitle] = useState('')
   const [,setBook] = useState<File>()
   const [,setImgBook] = useState<File>()
   const [sinopse,setSinopse] = useState('')
@@ -87,7 +88,9 @@ const Book: React.FC = () =>{
       const file = inputRef.current?.files?.[0]
 
       file && formData.append('photo',file);
+
       //imgBook && formData.append('photo',imgBook);
+      title && formData.append('title',title);
       category && formData.append('category_id',category);
       sinopse && formData.append('sinopse',sinopse);
 
@@ -234,7 +237,7 @@ const Book: React.FC = () =>{
 
                 <div className='category'>
                   <label htmlFor="">Título</label>
-                  <input type="text" defaultValue={data?.title} />
+                  <input type="text" defaultValue={data?.title} onChange={(e) =>{setTitle(e.target.value)}}/>
                 </div>
 
                 <div className='sinopse'>

@@ -60,8 +60,8 @@ const AuthProvider:React.FC = ({children}) => {
 
     api.defaults.headers['Authorization'] = `Bearer ${token}`;
 
-    // await queryClient.invalidateQueries(['users'])
-    // await queryClient.invalidateQueries(['publications'])
+     await queryClient.invalidateQueries(['users'])
+     await queryClient.invalidateQueries(['publications'])
 
     setData({token,user})
   }, [])

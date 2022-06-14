@@ -82,7 +82,7 @@ const Books:React.FC = () =>{
   const handleSubmit =async () =>{
     try{
 
-      if(sinopse.length > 200){
+      if(sinopse?.length > 200){
         throw Error("So é possivel digitar no maximo 200 caracteres")
       }
 
@@ -206,7 +206,7 @@ const Books:React.FC = () =>{
 
                 <div className='sinopse'>
                   <label htmlFor="">Sinopse</label>
-                  <textarea onChange={(e) =>{setSinopse(e.target.value)}} name="sinopse " id="" cols={30} rows={10} placeholder="Escreva até 200 caracteres"></textarea>
+                  <textarea required onChange={(e) =>{setSinopse(e.target.value)}} name="sinopse " id="" cols={30} rows={10} placeholder="Escreva até 200 caracteres"></textarea>
                 </div>
                 <Button type='submit' onClick={(e:any) =>{}}>
                   {loading ? <ClipLoader color='#613c0d'/> : `Cadastrar Livro`}
