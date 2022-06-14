@@ -1,26 +1,24 @@
-import React, { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react'
-import { useParams,useHistory } from 'react-router-dom';
-import { Container ,Content, Informations,BookContainer, AvatarInput} from './styles'
-import {BooksProps, SelectProps} from '../Types'
-import { useQuery } from 'react-query';
-import api from '../../services/api';
-import Pagination from '../../components/pagination'
-import {Header} from '../../components/Header'
-import Button from '../../components/Button'
-
-import {usePagination} from '../../hooks/Pagination'
-import {useAuth} from '../../hooks/AuthContext'
-
-import {Example} from '../../components/Speech'
-import { queryClient } from '../../services/queryClient';
-import Modal from '../../components/Modal';
 import { Form } from '@unform/web';
-import { useToast } from '../../hooks/ToastContext';
-import { useModal } from '../../hooks/ModalContext';
+import React, { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react'
+import { FiCamera } from 'react-icons/fi';
+import { useQuery } from 'react-query';
+import { useHistory, useParams } from 'react-router-dom';
+import Select from 'react-select';
 import { ClipLoader } from 'react-spinners';
 
-import Select from 'react-select';
-import { FiCamera } from 'react-icons/fi';
+import Button from '../../components/Button'
+import { Header } from '../../components/Header'
+import Modal from '../../components/Modal';
+import Pagination from '../../components/pagination'
+import { Example } from '../../components/Speech'
+import { useAuth } from '../../hooks/AuthContext'
+import { useModal } from '../../hooks/ModalContext';
+import { usePagination } from '../../hooks/Pagination'
+import { useToast } from '../../hooks/ToastContext';
+import api from '../../services/api';
+import { queryClient } from '../../services/queryClient';
+import { BooksProps, SelectProps } from '../Types'
+import { AvatarInput, BookContainer, Container, Content, Informations } from './styles'
 
 type BookParams = {
   id: string;
@@ -194,28 +192,13 @@ const Book: React.FC = () =>{
                 </div>
                 }
               </div>
-              <p>{text}</p>
+              <p>{text.replace(/\.|0|1|2|3|4|5|6|7|8|9/g,'')}</p>
             </div>
 
             <Modal title='Atualizar livro'>
               <Form action="" onSubmit={handleSubmit}>
                 <div>
                   <div>
-                    {/* <div className="btn-styles">
-                      <UploadControl onChange={handleAddPhoto} accept="image/png, image/jpeg" value={undefined} disabled={false} id="segundo">
-                        {imgBook ?
-                       <>
-                        <AiFillCheckCircle color='green'/> 
-                        <p style={{fontSize:'12px'}}>{imgBook?.name}</p>
-                       </>
-                       : 
-                       <>
-                        <BiImport/>
-                        <p>Selecione a capa</p>
-                       </>
-                        }  
-                      </UploadControl>
-                    </div> */}
                   </div>
                 </div>
                 <div style={{display:'flex',alignItems:'flex-end',justifyContent:"space-between",width:"100%"}}>
@@ -243,7 +226,6 @@ const Book: React.FC = () =>{
                         onChange={handleAvatarChange}
                       />
 
-                      {/* <input type="file" className="custom-file-input" accept=".csv" ref={inputRef} onChange={handleSubmit}/> */}
                   </label>
                 </AvatarInput>
                 </div>

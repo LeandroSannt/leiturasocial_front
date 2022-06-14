@@ -58,8 +58,6 @@ const Categories:React.FC<ICategoryProps> = ({setCategoryId}) =>{
     setCategoryId(id)
   }
 
-  
-
   const handleSubmit = async (e: React.FormEvent<HTMLInputElement>) =>{
 
     try{
