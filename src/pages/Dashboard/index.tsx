@@ -5,6 +5,7 @@ import { AiOutlineComment } from 'react-icons/ai';
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
+import { v4 as uuid } from 'uuid'
 
 import { Header } from "../../components/Header";
 import { Sidebar } from "../../components/SidebarUsers";
@@ -159,8 +160,8 @@ const Dashboard: React.FC = () =>{
             </form>
 
             {data?.map((post,index) =>(
-            <Publication>
-              <header key={post.id} className="header-publication">
+            <Publication key={uuid()}>
+              <header  className="header-publication">
                 <div>
                   <div>
                     {post.user.avatar ? 
@@ -218,12 +219,10 @@ const Dashboard: React.FC = () =>{
                     onChange={(e) => setLink(e.target.value)}
                     onSelect={(val) => setLink(val)}
                   />
-
-                    
-                  </div> 
+                </div> 
 
                   {post.comments?.map((comment) =>(
-                    <div key={comment.id} className="userCommenter">
+                    <div key={uuid()} className="userCommenter">
                       <div className="imageContent">
 
                       {comment.user.avatar ?
