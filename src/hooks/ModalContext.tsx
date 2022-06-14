@@ -1,5 +1,4 @@
-import React,{ createContext, useContext, useEffect, useState } from 'react'
-import ReactModal from 'react-modal';
+import React,{ createContext, useContext, useState } from 'react'
 
 interface ModalContextState{
   openModal():void
@@ -12,16 +11,7 @@ interface ModalContextState{
 }
 
 
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
+
 
 //iniciando um contexto vazio precisa colocar o as e o nome da interface
 const ModalContext = createContext<ModalContextState>({} as ModalContextState)

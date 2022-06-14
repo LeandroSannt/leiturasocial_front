@@ -1,5 +1,4 @@
-import { userInfo } from 'os'
-import styled,{css} from 'styled-components'
+import styled,{ css } from 'styled-components'
 
 interface AdminProps{
   isAdmin:boolean
@@ -12,7 +11,6 @@ height: 100vh;
 header{
   position: initial;
 }
-
 `
 
 export const Content = styled.div`
@@ -23,7 +21,6 @@ export const Content = styled.div`
   gap: 40px;
   padding: 40px 0;
   margin: 0 auto;
-
 `
 
 export const Informations = styled.div`
@@ -61,13 +58,34 @@ export const Informations = styled.div`
   text-align: justify;
 }
 `
-
 export const BookContainer = styled.div<AdminProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
    justify-content: space-between;
   min-height: 90%;
+
+  .admin{
+    width: 320px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    button{
+      margin-bottom: 10px;
+    }
+  }
+
+  ${(props) => 
+      !props.isAdmin &&
+      css`
+      button + button{
+
+        margin-left:0 !important;
+      }
+      justify-content: flex-end;
+      `
+    }
 
   h1{
     margin-top: 13px;
@@ -86,12 +104,13 @@ export const BookContainer = styled.div<AdminProps>`
     align-items: center;
     justify-content: space-between;
 
+
     ${(props) => 
       !props.isAdmin &&
       css`
       align-items: center;
 
-      justify-content: center;
+      justify-content: flex-end;
       `
     }}
   
@@ -128,4 +147,5 @@ export const AvatarInput = styled.div`
     }
   }
 `;
+
 

@@ -1,6 +1,6 @@
-import React, {Fragment, HTMLAttributes} from 'react'
-import { queryClient } from '../../../services/queryClient'
-import {Container} from './styles'
+import React, { Fragment, HTMLAttributes } from 'react'
+
+import { Container } from './styles'
 
 interface IcategoryProps extends HTMLAttributes<HTMLDivElement> {
   title:string

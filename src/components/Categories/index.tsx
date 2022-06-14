@@ -96,7 +96,7 @@ const Categories:React.FC<ICategoryProps> = ({setCategoryId}) =>{
         <div className='overflow'>
           {categories?.map((category) =>{
             return(
-              <div >
+              <div key={category.id} >
                 <Category {...(active === category.id && { className: 'selected' } )} onClick={async() =>{
                   hasActiveCategory(category.id)
                   }} key={category.id} title={category.name}/>

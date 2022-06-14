@@ -1,24 +1,22 @@
-import React ,{FormEvent, useRef, useState}from "react";
-import {Container,Content,Publishes,Publication,Comments} from './styles'
-import { queryClient } from "../../services/queryClient";
+import moment from 'moment'
+import React ,{ FormEvent, useRef, useState }from "react";
+import AutoComplete from 'react-autocomplete'
+import { AiOutlineComment } from 'react-icons/ai';
+import { GiHamburgerMenu } from 'react-icons/gi'
+import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
+
 import { Header } from "../../components/Header";
 import { Sidebar } from "../../components/SidebarUsers";
-
-import {useAuth} from '../../hooks/AuthContext'
-import {useData} from '../../hooks/DataContext'
-import {useToast} from '../../hooks/ToastContext'
-import {useSidebar} from '../../hooks/SidebarActive'
+import { useAuth } from '../../hooks/AuthContext'
+import { useData } from '../../hooks/DataContext'
+import { useSidebar } from '../../hooks/SidebarActive'
+import { useToast } from '../../hooks/ToastContext'
+import api from "../../services/api";
+import { queryClient } from "../../services/queryClient";
+import { Comments, Container, Content, Publication, Publishes } from './styles'
 
 import 'moment/locale/pt-br'
-import moment from 'moment'
-import { AiOutlineComment } from 'react-icons/ai';
-import {GiHamburgerMenu} from 'react-icons/gi'
-import { Link } from "react-router-dom";
-import api from "../../services/api";
-
-import AutoComplete from 'react-autocomplete'
-import { useQuery } from "react-query";
-
 
 interface BookProps{
   id:string
@@ -34,10 +32,8 @@ const Dashboard: React.FC = () =>{
   const refComment = useRef<HTMLInputElement>(null)
 
   const [activeCommenters,setActiveCommenters] = useState(false)
-  const [linkPage,setLinkPage] = useState('')
   let [link,setLink] = useState('')
   const [bookId,setBookId] = useState('')
-  const [bookMark,setbookMark] = useState<BookProps[]>([])
   const [postId,setPostId] = useState("")
   const {data,handlePublication, handleComment} = useData()
   const {user} = useAuth()

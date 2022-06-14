@@ -68,8 +68,9 @@ const Book: React.FC = () =>{
     if(confirm){
       await api.delete(`/books/${id}`)
 
-      await queryClient.invalidateQueries(['books'])
+      await queryClient.invalidateQueries(['books','book'])
       history.push('/books')
+      window.location.reload();
 
     }
   }
@@ -182,11 +183,11 @@ const Book: React.FC = () =>{
               <div>
                 <h1>{data?.title}</h1>
                 {user.isAdmin && 
-                <div>
+                <div className='admin'>
                   <Button style={{width:'150px',background:'red',marginTop:0}} onClick={() =>{handleDelete()}}>     Excluir  livro
                   </Button>  
 
-                  <Button style={{width:'150px',marginTop:0, marginLeft:'20px'}} onClick={() =>{openModal()}}>
+                  <Button  style={{width:'150px',marginTop:0}} onClick={() =>{openModal()}}>
                   Editar livro
                   </Button>  
                 </div>

@@ -1,9 +1,5 @@
 import styled from 'styled-components'
 
-interface CategoryProps{
-title:string
-}
-
 export const Container = styled.div`
 width:100%;
 transition: 200ms;

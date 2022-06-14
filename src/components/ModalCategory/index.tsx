@@ -3,7 +3,6 @@ import { AiOutlineClose } from 'react-icons/ai';
 import ReactModal from 'react-modal';
 
 import { useModal } from '../../hooks/ModalContext'
-import api from '../../services/api';
 import { Container } from './styles'
 
 interface TitleProps{
