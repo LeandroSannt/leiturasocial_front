@@ -1,6 +1,4 @@
-import { FormHandles } from '@unform/core'
-import { Form } from '@unform/web'
-import React,{ useEffect, useRef, useState } from 'react'
+import React,{ useEffect, useState } from 'react'
 import ClipLoader from "react-spinners/ClipLoader";
 
 import { useModal } from '../../hooks/ModalContext'
@@ -18,15 +16,13 @@ interface ICategoryProps{
 
 const Categories:React.FC<ICategoryProps> = ({setCategoryId}) =>{
 
-  const formRef = useRef<FormHandles>(null);
-
   const [categories,setCategories] = useState<CategoryProps[]>([])
   const [filterCategory,setFilterCategory] = useState('')
   const [,setIdCategory] = useState('')
   const [active,setActive] = useState('')
   const [activeCategory,setActiveCategory] = useState(false)
   const [nameCategory,setNameCategory] = useState('')
-  const [loading,setLoading] = useState(false)
+  const [loading,] = useState(false)
 
 
   const {closeModal2,openModal2} = useModal()
