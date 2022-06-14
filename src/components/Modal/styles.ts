@@ -42,7 +42,7 @@ header{
         flex-direction:column;
         color: black;
         margin-right: 20px;
-        width: 100%;
+       // width: 100%;
       
       }
        label{
@@ -60,7 +60,6 @@ header{
       width: 100%;
 
    .AABbh form >div >div{
-    width: 100%;
    }
 
       input{

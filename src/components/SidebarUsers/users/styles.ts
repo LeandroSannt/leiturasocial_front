@@ -1,6 +1,5 @@
+import { shade } from 'polished'
 import styled from 'styled-components'
-import {shade} from 'polished'
-
 
 export const Container = styled.div`
 
@@ -28,7 +27,6 @@ export const Container = styled.div`
   align-items: center;  
 
     img{
-      width:100%;
       height:100%;
       border-radius: 50%;
       border:2px solid green;
