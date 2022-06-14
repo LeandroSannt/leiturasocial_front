@@ -1,27 +1,25 @@
-import React, {useState, useCallback, ChangeEvent, useRef} from 'react'
-import {Container,ListBooks,Content,List} from './styles'
-import {Header} from '../../components/Header'
-import Categories from '../../components/Categories'
-import Button from '../../components/Button'
-import Modal from '../../components/Modal'
-import { useQuery } from 'react-query';
-import {BooksProps,SelectProps} from '../Types'
-import api from '../../services/api'
-import {Link} from 'react-router-dom'
-import ClipLoader from "react-spinners/ClipLoader";
-import { BiImport } from 'react-icons/bi';
-import { AiFillCheckCircle } from 'react-icons/ai';
-
-import {useModal} from '../../hooks/ModalContext'
-import {useToast} from '../../hooks/ToastContext'
-import {useAuth} from '../../hooks/AuthContext'
-
-import Select from 'react-select';
-import UploadControl from '../../components/UploadController'
-
 import { FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
+import React, { ChangeEvent, useCallback, useRef, useState } from 'react'
+import { AiFillCheckCircle } from 'react-icons/ai';
+import { BiImport } from 'react-icons/bi';
+import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom'
+import Select from 'react-select';
+import ClipLoader from "react-spinners/ClipLoader";
+
+import Button from '../../components/Button'
+import Categories from '../../components/Categories'
+import { Header } from '../../components/Header'
+import Modal from '../../components/Modal'
+import UploadControl from '../../components/UploadController'
+import { useAuth } from '../../hooks/AuthContext'
+import { useModal } from '../../hooks/ModalContext'
+import { useToast } from '../../hooks/ToastContext'
+import api from '../../services/api'
 import { queryClient } from '../../services/queryClient'
+import { BooksProps, SelectProps } from '../Types'
+import { Container, Content, List, ListBooks } from './styles'
 
 const Books:React.FC = () =>{
 
@@ -217,6 +215,7 @@ const Books:React.FC = () =>{
 
               
             </Modal>
+            
             <div style={{display:'flex',justifyContent:'space-between', alignItems:'center'}}>
               <div className='Input'>
                 <input type="text" placeholder='Escolha um livro' onChange={(e) =>{filterBooks(e)}} />

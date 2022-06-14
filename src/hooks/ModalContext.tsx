@@ -1,9 +1,14 @@
-import React,{createContext, useState,useContext, useEffect} from 'react'
+import React,{ createContext, useContext, useEffect, useState } from 'react'
 import ReactModal from 'react-modal';
+
 interface ModalContextState{
   openModal():void
   closeModal():void
   modalIsOpen:boolean
+
+  openModal2():void
+  closeModal2():void
+  modalIsOpen2:boolean
 }
 
 
@@ -33,8 +38,19 @@ const ModalProvider:React.FC = ({children}) => {
     setIsOpen(false);
   }
 
+
+  const [modalIsOpen2, setIsOpen2] = useState(false);
+
+  function openModal2() {
+    setIsOpen2(true);
+  }
+
+  function closeModal2() {
+    setIsOpen2(false);
+  }
+
   return (
-    <ModalContext.Provider value ={{openModal,closeModal,modalIsOpen}}>
+    <ModalContext.Provider value ={{closeModal2,openModal2,modalIsOpen2,openModal,closeModal,modalIsOpen}}>
      {children}
      </ModalContext.Provider>
   )

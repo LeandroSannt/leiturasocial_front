@@ -12,8 +12,6 @@ display: flex;
 justify-content: space-between;
 flex-direction: column;
 
-
-
   h2{
     margin: 0 auto;
     height: 100px;
